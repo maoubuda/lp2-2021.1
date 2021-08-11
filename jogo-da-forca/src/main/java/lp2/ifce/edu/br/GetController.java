@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GetController {
 
-    @GetMapping("h1")
-    public String teste() {
-        return "Hello World";
-    }
+    private Forca forca = new Forca("acabou");
 
-    @GetMapping("h2")
-    public String teste2() {
-        return "Hello World 2";
+    @GetMapping
+    public Forca getForca(String letter) {
+        forca.add(letter);
+        return forca;
     }
 
 }
