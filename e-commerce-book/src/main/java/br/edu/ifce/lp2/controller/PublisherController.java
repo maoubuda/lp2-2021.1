@@ -14,6 +14,7 @@ public class PublisherController {
     public Publisher get() {
 
         var publisher = new Publisher();
+        publisher.setId(2);
         publisher.setName("Elseiver");
         publisher.setPhone("(88) 9 9999 99 97");
 
