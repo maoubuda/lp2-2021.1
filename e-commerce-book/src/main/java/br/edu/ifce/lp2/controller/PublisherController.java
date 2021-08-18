@@ -1,23 +1,36 @@
 package br.edu.ifce.lp2.controller;
 
 import br.edu.ifce.lp2.model.entities.Publisher;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import br.edu.ifce.lp2.model.repository.PublisherRepository;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
 
 @RestController
-@RequestMapping
+@RequestMapping("publishers")
 public class PublisherController {
 
+    private static PublisherRepository repository = new PublisherRepository();
+
+    @PostMapping
+    public void post(@RequestBody Publisher publisher) {
+        repository.create(publisher);
+    }
+
+    @PutMapping("{id}")
+    public void put(@PathVariable Long id, @RequestBody Publisher publisher) {
+        publisher.setId(id);
+        repository.update(id, publisher);
+    }
 
     @GetMapping
-    public Publisher get() {
-
-        var publisher = new Publisher();
-        publisher.setId(2);
-        publisher.setName("Elseiver");
-        publisher.setPhone("(88) 9 9999 99 97");
-
-        return publisher;
+    public Collection<Publisher> get() {
+        return repository.getAll();
     }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable Long id) {
+        repository.delete(id);
+    }
+
 }
