@@ -1,11 +1,14 @@
 package br.edu.ifce.lp2.controller;
 
+import br.edu.ifce.lp2.controller.request.PublisherRequest;
+import br.edu.ifce.lp2.controller.response.PublisherResponse;
 import br.edu.ifce.lp2.model.entities.Publisher;
 import br.edu.ifce.lp2.model.services.PublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collection;
 
 @RestController
 @RequestMapping("publishers")
@@ -15,19 +18,29 @@ public class PublisherController {
     private PublisherService service;
 
     @PostMapping
-    public void post(@RequestBody Publisher publisher) {
-        service.create(publisher);
+    public PublisherResponse post(@RequestBody PublisherRequest request) {
+        var publisher = request.toPublisher();
+        return new PublisherResponse().fromPublisher(service.create(publisher));
     }
 
     @PutMapping("{id}")
-    public void put(@PathVariable String id, @RequestBody Publisher publisher) {
-        publisher.setId(id);
-        service.update(id, publisher);
+    public PublisherResponse put(@PathVariable String id, @RequestBody PublisherRequest request) {
+        var publisher = request.toPublisher();
+        return new PublisherResponse().fromPublisher(service.update(id, publisher));
     }
 
     @GetMapping
-    public Collection<Publisher> get() {
-        return service.getAll();
+    public Page<PublisherResponse> get(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int linesPerPage,
+            @RequestParam(defaultValue = "ASC") String direction,
+            @RequestParam(defaultValue = "name") String orderBy
+    ) {
+
+        var pageable = PageRequest.of(page, linesPerPage, Sort.Direction.fromString(direction), orderBy);
+
+        return service.getAll(pageable)
+                .map(p -> new PublisherResponse().fromPublisher(p));
     }
 
     @GetMapping("{id}")
