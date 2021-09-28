@@ -10,6 +10,8 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/app-client-test/pom.xml" />
+        <option value="$PROJECT_DIR$/app-test-client/pom.xml" />
+        <option value="$PROJECT_DIR$/email.aws/pom.xml" />
       </set>
     </option>
   </component>

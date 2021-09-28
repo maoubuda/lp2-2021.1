@@ -4,6 +4,6 @@ import br.ifce.edu.lp2.core.domain.Client;
 
 public interface CreateClientPort {
 
-    String apply(Client client);
+    Client apply(Client client);
 
 }
