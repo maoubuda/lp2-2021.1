@@ -1,8 +1,9 @@
 package br.edu.ifce.lp2.email.adapters;
 
-import br.ifce.edu.lp2.core.ports.driven.email.SendEmailForTokenConfirmationPort;
+import br.edu.ifce.lp2.core.ports.driven.email.SendEmailForTokenConfirmationPort;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class SendEmailForTokenConfirmation implements SendEmailForTokenConfirmationPort {
 
     @Override

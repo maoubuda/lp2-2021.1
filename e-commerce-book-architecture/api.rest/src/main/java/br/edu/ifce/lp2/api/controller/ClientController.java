@@ -1,7 +1,7 @@
 package br.edu.ifce.lp2.api.controller;
 
-import br.ifce.edu.lp2.core.domain.Client;
-import br.ifce.edu.lp2.core.ports.driver.CreateClientPort;
+import br.edu.ifce.lp2.core.domain.Client;
+import br.edu.ifce.lp2.core.ports.driver.CreateClientPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
