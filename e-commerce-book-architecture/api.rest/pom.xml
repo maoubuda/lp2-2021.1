@@ -12,11 +12,13 @@
     <artifactId>api.rest</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>br.edu.ifce.lp2</groupId>
             <artifactId>core</artifactId>
             <version>1.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>br.edu.ifce.lp2</groupId>
             <artifactId>email</artifactId>

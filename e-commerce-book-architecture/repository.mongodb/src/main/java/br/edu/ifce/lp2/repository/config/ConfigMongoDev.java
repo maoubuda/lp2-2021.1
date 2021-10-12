@@ -11,7 +11,7 @@ public class ConfigMongoDev {
 
     @Bean
     public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(getClient(), "lp2021");
+        return new MongoTemplate(getClient(), "lp2021-dev");
     }
 
     private MongoClient getClient() {

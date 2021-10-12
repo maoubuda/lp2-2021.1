@@ -13,4 +13,6 @@ public class Client {
     private String password;
     private boolean enabled;
 
+    private Token token;
+
 }

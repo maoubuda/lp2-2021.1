@@ -4,7 +4,7 @@ import br.edu.ifce.lp2.core.domain.Client;
 import lombok.Setter;
 
 @Setter
-public class ClientResponse {
+public class ClientRequest {
 
     private String name;
     private String password;

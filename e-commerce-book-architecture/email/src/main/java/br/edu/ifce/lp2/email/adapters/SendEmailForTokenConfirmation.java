@@ -1,14 +1,16 @@
 package br.edu.ifce.lp2.email.adapters;
 
 import br.edu.ifce.lp2.core.ports.driven.email.SendEmailForTokenConfirmationPort;
+import br.edu.ifce.lp2.email.SmtpSendEmail;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
-public class SendEmailForTokenConfirmation implements SendEmailForTokenConfirmationPort {
+public record SendEmailForTokenConfirmation(SmtpSendEmail sendEmail) implements SendEmailForTokenConfirmationPort {
 
     @Override
     public void apply(String email, String token) {
-        System.out.println("Send email for " + email);
-        System.out.println("Token: " + token);
+        sendEmail.apply(Set.of(email), "Email for confirmation!", token);
     }
 }
