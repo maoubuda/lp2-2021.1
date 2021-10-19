@@ -3,15 +3,13 @@ package br.edu.ifce.lp2.email;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
 public record SmtpSendEmail(JavaMailSender mailSender) {
-
-    @Async
+    
     public void apply(Set<String> receivers, String subject, String body) {
         try {
 

@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
+@EnableAsync
 @EnableAutoConfiguration(exclude = MongoAutoConfiguration.class)
 public class Application {
 
