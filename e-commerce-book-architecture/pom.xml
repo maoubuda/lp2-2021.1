@@ -10,6 +10,7 @@
         <module>email</module>
         <module>repository.mongodb</module>
         <module>api.rest</module>
+        <module>security</module>
     </modules>
 
     <parent>
