@@ -14,6 +14,8 @@ public interface ClientRepositoryPort {
 
     Client findByTokenValue(String token);
 
+    Client findByEmail(String email);
+
     void deleteById(String id);
 
 }
