@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="security" />
+        <module name="examples" />
         <module name="email" />
         <module name="api.rest" />
         <module name="repository.mongodb" />
@@ -24,6 +25,7 @@
       <module name="api.rest" options="-parameters" />
       <module name="core" options="-parameters" />
       <module name="email" options="-parameters" />
+      <module name="examples" options="-parameters" />
       <module name="repository.mongodb" options="-parameters" />
       <module name="security" options="-parameters" />
     </option>

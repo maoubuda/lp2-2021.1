@@ -11,6 +11,7 @@
         <module>repository.mongodb</module>
         <module>api.rest</module>
         <module>security</module>
+        <module>examples</module>
     </modules>
 
     <parent>
